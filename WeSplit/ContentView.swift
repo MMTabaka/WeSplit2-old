@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    let names = ["Harry", "Hermione", "Ron"]
+    @State private var selected = "Harry"
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Form {
+                Picker("Select your name", selection: $selected) {
+                    ForEach(names, id: \.self) {
+                        Text($0)
+                    }
+                }
+            }
+        }
     }
 }
 
