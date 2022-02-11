@@ -8,24 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    let names = ["Harry", "Hermione", "Ron"]
-    @State private var selected = "Harry"
-    
     var body: some View {
-        NavigationView {
-            Form {
-                Picker("Select your name", selection: $selected) {
-                    ForEach(names, id: \.self) {
-                        Text($0)
-                    }
-                }
-            }
-        }
+        Text("Hello World!")
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
