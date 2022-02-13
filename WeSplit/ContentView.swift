@@ -26,6 +26,8 @@ struct ContentView: View {
         return amountPerPerson
     }
     
+    let currencyFormat: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currencyCode ?? "USD")
+    
     var body: some View {
         NavigationView {
             Form {
@@ -53,7 +55,15 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                    Text(totalPerPerson * Double(numberOfPeople + 2), format: currencyFormat)
+                } header: {
+                    Text("Total amount for the check")
+                }
+                
+                Section {
+                    Text(totalPerPerson, format: currencyFormat)
+                } header: {
+                    Text("Amount per person")
                 }
             }
             .navigationTitle("WeSplit")
